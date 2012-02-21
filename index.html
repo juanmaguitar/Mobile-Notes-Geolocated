@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1"> 
+	
+	<link rel="stylesheet" href="css/jquery.mobile-1.0.1.css" media="screen" title="jQuery Mobile" charset="utf-8">
+	
+</head>
+<body>
+
+	<!-- Home Page -->
+	<div id="home" data-role="page">
+	
+		<div data-role="header">
+			<h1>Local Notes</h1> 
+			<a href="#new" data-role="button" data-icon="plus" class="ui-btn-right" data-transition="pop" data-rel="dialog">New</a> 
+		</div>
+
+		<div data-role="content">
+			<a href="#new" data-role="button" data-icon="plus" class="ui-btn-right" data-transition="pop" data-rel="dialog" data-theme="b">New Note</a>
+			
+			<ul data-role="listview" data-inset="true">
+				<li><a href="#all">All Notes</a></li>
+				<li><a href="#nearest">Nearest Notes</a></li>			
+			</ul>
+			
+		</div>
+	</div>
+
+	
+	<!-- New Note Form -->
+	<div id="new" data-role="page">
+	
+		<div data-role="header">
+			<h1>New Note</h1>
+		</div>
+		
+		<div data-role="content">
+			<form action="#" method="post">
+				<div data-role="fieldcontain">
+					<label for="title">Title</label>
+					<input id="title" name="title" value="">
+				</div>
+				
+				<div data-role="fieldcontain">
+					<label for="body">Body</label>
+					<textarea id="body" name="body"></textarea>
+				</div>
+				
+				<button data-icon="check" data-theme="b">Save</button>
+			</form>
+		</div>
+	</div>
+	
+	
+	<!-- List of Notes-->
+	<div id="all" data-role="page">
+	
+		<div data-role="header">
+			<a href="#home" data-role="button" data-icon="arrow-l" data-rel="back">Back</a>
+			<h1>All Notes</h1>
+		</div>
+		
+		<div data-role="content">
+			<ul data-role="listview" id="all_notes" role="listbox">
+			</ul>
+		</div>
+		
+	</div>
+	
+	<!-- List of Notes detail pages -->
+	<div id="note-detail-list">
+	</div>
+	
+	
+	
+	<!-- with TEXT/TEMPLATE we are saying that this is not Javascript-->
+	<!-- so you don't have to parse it -->
+	
+	<script type="text/template" id="note-list-item-template">
+		<a href="#note_<%= note.id %>"><%= note.get('title') %></a>
+	</script>
+	
+	<script type="text/template" id="note-detail-template">
+		<div data-role="header">
+			<a href="#home" data-role="button" data-icon="arrow-l" data-rel="back">
+				Back
+			</a>
+			<h1><%= note.get('title') %></h1>
+		</div>
+		<div data-role="content">
+			<%= note.get('body') %>
+		</div>
+	</script>
+
+	
+	<script src="js/libs/jquery-1.7.1.js"></script>
+	<script src="js/libs/underscore-1.1.6.js"></script>
+	<script src="js/libs/backbone-0.3.3.js"></script>
+	<script src="js/libs/backbone.localStorage.js"></script>
+	<script src="js/application.js"></script>
+	<script src="js/libs/jquery.mobile-1.0a3.min.js"></script>
+	
+	
+</body>
+</html>
