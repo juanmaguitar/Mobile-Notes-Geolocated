@@ -72,10 +72,10 @@ var NotesApp = (function(){
 			e.preventDefault();
 
 			// Stop jQuery Mobile from doing its form magic.
-			e.StopPropagation();		
+			e.stopPropagation();		
 			
 			// Close
-			$(".iu-dialog").dialog('close');
+			$(this.el).dialog('close');
 			this.reset();	
 		},
 		
@@ -229,7 +229,7 @@ var NotesApp = (function(){
 
 	
 	App.views.new_form = new NewFormView({
-		el : $('#new')
+		el : $('#form_new_note')
 	}); 
 	
 	App.views.list_alphabetical = new NoteListView({
