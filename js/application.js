@@ -75,7 +75,7 @@ var NotesApp = (function(){
 			e.stopPropagation();		
 			
 			// Close
-			$(".iu-dialog").dialog('close');
+			$(this.el).dialog('close');
 			this.reset();	
 		},
 		
@@ -229,7 +229,7 @@ var NotesApp = (function(){
 
 	
 	App.views.new_form = new NewFormView({
-		el : $('#new')
+		el : $('#form_new_note')
 	}); 
 	
 	App.views.list_alphabetical = new NoteListView({
