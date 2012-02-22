@@ -72,7 +72,7 @@ var NotesApp = (function(){
 			e.preventDefault();
 
 			// Stop jQuery Mobile from doing its form magic.
-			e.stopPropagation();		
+			e.StopPropagation();		
 			
 			// Close
 			$(".iu-dialog").dialog('close');
